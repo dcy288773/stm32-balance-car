@@ -1,0 +1,38 @@
+# Keil MDK 编译产物（本地生成，不入库）
+OBJ/
+LISTING/
+*.o
+*.d
+*.crf
+*.axf
+*.map
+*.lst
+*.lnp
+*.sct
+*.dep
+*.plg
+*.build_log.htm
+*.tra
+*.iex
+*.bin
+
+# Keil 个人界面 / 调试配置（每人不同，会互相冲突）
+*.uvguix.*
+*.uvgui.*
+*.uvoptx.bak
+DebugConfig/
+EventRecorderStub.scvd
+JLinkLog.txt
+JLinkSettings.ini
+*.dbgconf
+
+# 备份与临时文件
+*.bak
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
