@@ -154,6 +154,14 @@ Code=23856  RO-data=5368  RW-data=276  ZI-data=2668
 > ⚠️ CubeMX 重新生成代码会覆盖 `hal/MDK-ARM/*.uvprojx`、清空 Keil 里的 `MyAPP`
 > 文件组和头文件路径、并取消 MicroLIB 勾选。生成后必须手工恢复这三项。
 
+### 蓝牙遥控（JDY-31）
+
+1. 安装 App —— APK：[`docs/app/lanyatiaoshiqi.apk`](docs/app/lanyatiaoshiqi.apk)（安卓）
+2. **蓝牙和定位都要打开** —— 定位关着时，蓝牙开着也搜不到任何设备
+3. 连接 `JDY-31`，然后进入 **「按钮控制」** 界面打开 **编辑模式**，把每个按键的发送数据改成对应 HEX，**并打开 HEX 模式**（`01` 前进 / `05` 后退 / `07` 左转 / `03` 右转 / `00` 停止）
+
+完整教程：[`docs/bluetooth-app.md`](docs/bluetooth-app.md)
+
 ---
 
 ## 🧠 控制结构

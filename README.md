@@ -160,6 +160,14 @@ Code=23856  RO-data=5368  RW-data=276  ZI-data=2668
 > file group and include paths in Keil, and unchecks MicroLIB. All three must be
 > restored by hand afterwards.
 
+### Bluetooth remote (JDY-31)
+
+1. Install the app — APK: [`docs/app/lanyatiaoshiqi.apk`](docs/app/lanyatiaoshiqi.apk) (Android)
+2. **Turn on both Bluetooth and Location** on the phone — with Location off, the scan list stays empty even though Bluetooth is on
+3. Connect to `JDY-31`, then on the **Button Control** page turn on **Edit Mode**, and set each button's data with **HEX mode enabled** (`01` forward, `05` back, `07` left, `03` right, `00` stop)
+
+Full walkthrough: [`docs/bluetooth-app.md`](docs/bluetooth-app.md)
+
 ---
 
 ## 🧠 Control structure
