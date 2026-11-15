@@ -1,0 +1,19 @@
+# ===== Keil / MDK-ARM 编译产物 =====
+MDK-ARM/balance_car/
+MDK-ARM/DebugConfig/
+MDK-ARM/RTE/
+MDK-ARM/*.uvguix.*
+MDK-ARM/*.uvoptx
+MDK-ARM/*.lst
+
+# ===== 压缩包 / 备份 =====
+*.zip
+*.rar
+*.7z
+*.bak
+*~
+
+# ===== 系统杂项 =====
+Thumbs.db
+Desktop.ini
+.DS_Store
