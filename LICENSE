@@ -19,20 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Note on third-party code:
-
-This repository bundles third-party sources that are NOT covered by the MIT
-License above. They keep their own copyright notices and license terms and are
-included for study purposes only:
-
-  - STM32F10x_FWLib/ , CORE/   STMicroelectronics standard peripheral library
-                               and ARM CMSIS
-  - HARDWARE/MPU6050/eMPL/     InvenSense Motion Driver,
-                               Copyright (C) 2011-2012 InvenSense Corporation
-  - SYSTEM/                    Common STM32 teaching-code style (delay/sys/usart)
-
-Only the parts written and organized by the repository owner (parameter tuning,
-wiring documentation, README, comments) are released under the MIT License.

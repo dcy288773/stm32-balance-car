@@ -8,7 +8,7 @@ extern "C" {
 #include "main.h"
 
 /*
- * 蓝牙遥控（USART3 + HC-05/HC-06，9600 8N1）
+ * 蓝牙遥控（USART3 + JDY-31，9600 8N1）
  *
  * 协议沿用厂商手机 App 的 1 字节指令，方便直接用现成 App：
  *   0x00 停   0x01 前   0x05 后   0x07 左   0x03 右
