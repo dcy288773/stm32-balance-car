@@ -111,11 +111,11 @@ Full BOM: [`documents/hardware.md`](documents/hardware.md).
 
 Standing up and recovering after being pushed:
 
-![self-balancing demo](docs/images/demo_self_balance.gif)
+<img src="docs/images/demo_self_balance.gif" width="480" alt="self-balancing demo">
 
 Driving with the Bluetooth remote (forward / reverse / turn):
 
-![bluetooth remote demo](docs/images/demo_bluetooth.gif)
+<img src="docs/images/demo_bluetooth.gif" width="260" alt="bluetooth remote demo">
 
 ---
 

@@ -106,11 +106,11 @@
 
 上电站立、被推后自行恢复：
 
-![自平衡演示](docs/images/demo_self_balance.gif)
+<img src="docs/images/demo_self_balance.gif" width="480" alt="自平衡演示">
 
 蓝牙遥控前进 / 后退 / 转向：
 
-![蓝牙遥控演示](docs/images/demo_bluetooth.gif)
+<img src="docs/images/demo_bluetooth.gif" width="260" alt="蓝牙遥控演示">
 
 ---
 
