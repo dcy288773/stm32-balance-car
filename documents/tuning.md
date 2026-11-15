@@ -3,6 +3,7 @@
 两版实现的控制结构与参数一致，参数都集中在控制文件顶部。
 
 - 标准库版：`std/HARDWARE/CONTROL/control.c`
+- HAL 版：`hal/MyAPP/pid.c`
 
 ## 参数
 
