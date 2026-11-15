@@ -104,14 +104,13 @@
 
 ## 🎬 演示
 
-点图片看视频（GitHub 会剥掉仓库内相对路径的 `<video>` 标签，所以这里用链接）：
+上电站立、被推后自行恢复：
 
-| 自平衡 | 蓝牙遥控 |
-|:---:|:---:|
-| [![自平衡](docs/images/car_front.jpg)](docs/media/demo_self_balance.mp4) | [![蓝牙遥控](docs/images/car_back.jpg)](docs/media/demo_bluetooth.mp4) |
+![自平衡演示](docs/images/demo_self_balance.gif)
 
-- 🎥 [自平衡演示](docs/media/demo_self_balance.mp4)
-- 🎥 [蓝牙遥控演示](docs/media/demo_bluetooth.mp4)
+蓝牙遥控前进 / 后退 / 转向：
+
+![蓝牙遥控演示](docs/images/demo_bluetooth.gif)
 
 ---
 

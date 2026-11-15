@@ -109,15 +109,13 @@ Full BOM: [`documents/hardware.md`](documents/hardware.md).
 
 ## 🎬 Demo
 
-Click a picture to watch the video (GitHub strips relative `<video>` tags, so the
-videos are linked rather than embedded):
+Standing up and recovering after being pushed:
 
-| Self-balancing | Bluetooth remote |
-|:---:|:---:|
-| [![self-balancing](docs/images/car_front.jpg)](docs/media/demo_self_balance.mp4) | [![bluetooth](docs/images/car_back.jpg)](docs/media/demo_bluetooth.mp4) |
+![self-balancing demo](docs/images/demo_self_balance.gif)
 
-- 🎥 [Self-balancing demo](docs/media/demo_self_balance.mp4)
-- 🎥 [Bluetooth remote demo](docs/media/demo_bluetooth.mp4)
+Driving with the Bluetooth remote (forward / reverse / turn):
+
+![bluetooth remote demo](docs/images/demo_bluetooth.gif)
 
 ---
 
