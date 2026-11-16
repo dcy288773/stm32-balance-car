@@ -80,6 +80,8 @@
 
 完整物料清单见 [`documents/hardware.md`](documents/hardware.md)。
 
+可直接拿去生产的文件：[`hardware/`](hardware/) —— 驱动板的嘉立创 Gerber 下单包（2 层，约 90 × 70 mm）与可 3D 打印的顶板 / 底板。
+
 ---
 
 ## 🔌 硬件连接
@@ -222,7 +224,8 @@ TIM3 定时中断 @200Hz (5ms)              [std/ 版：PB5 EXTI]
 ```
 stm32-balance-car/
 ├── documents/      硬件清单与调参说明（两版共用）
-├── docs/           实物照片与演示视频
+├── docs/           实物照片、演示 GIF、蓝牙 App 与使用教程
+├── hardware/       驱动板 Gerber（嘉立创）与 3D 打印件
 ├── std/            ✅ 标准外设库版
 │   ├── CORE/       CMSIS 内核与启动文件
 │   ├── STM32F10x_FWLib/   ST 标准外设库

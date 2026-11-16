@@ -102,6 +102,8 @@ Differences are deliberate and documented, not accidental:
 
 Full BOM: [`documents/hardware.md`](documents/hardware.md).
 
+Ready-to-use fabrication files: [`hardware/`](hardware/) — JLCPCB gerber package for the driver board (2 layers, ~90 × 70 mm) and the 3D-printable top/bottom plates.
+
 > ⚠️ Both versions disable JTAG to free PB3/PB4 for the MPU6050 software I2C.
 > **Flashing must use SWD**, not JTAG.
 
@@ -228,7 +230,8 @@ Tuning order: mechanical centre → `Vertical_Kp` → `Vertical_Kd` → `Velocit
 ```
 stm32-balance-car/
 ├── documents/      hardware BOM and tuning guide (shared)
-├── docs/           photos and demo videos
+├── docs/           photos, demo GIFs, Bluetooth app and its guide
+├── hardware/       PCB gerbers (JLCPCB) and 3D-printable plates
 ├── std/            ✅ Standard Peripheral Library version
 │   ├── CORE/           CMSIS core and startup
 │   ├── STM32F10x_FWLib/ ST standard peripheral library
