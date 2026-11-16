@@ -47,6 +47,18 @@ hardware/
 
 > 不同批次打样可能有改版，**下单前请用预览核对一次孔位与外形**。
 
+### 源工程（可编辑）
+
+| 文件 | 说明 |
+|---|---|
+| `pcb/source/driver_board_source_lceda_pro.epro2` | 立创EDA专业版工程包，571 KB，内含原理图 + PCB + 元件库引用 |
+
+- **工程原名**：`两轮平衡小车PCB学习`
+- **打开方式**：立创EDA专业版（导出时版本 **3.2.175**）→ `文件 → 打开工程(O)` → 选择该文件
+- **改板流程**：在这个工程里改 → `文件 → 导出 → 嘉立创下单文件` → 生成新的 Gerber 压缩包替换 `driver_board_gerber_jlcpcb.zip`
+
+> 立创EDA专业版默认把工程存在云端，本地不留文件。这个 `.epro2` 是手工导出的本地副本，改版后记得重新导出一次。
+
 ## 3D 打印件
 
 | 文件 | 零件 | 尺寸 |
@@ -104,6 +116,18 @@ Official guide: <https://prodocs.lceda.cn/cn/pcb/order-order-pcb/index.html>
 (the `PCB下单必读.txt` inside the zip just points to this link)
 
 > Revisions may change between batches — **verify hole positions and outline in the gerber preview before ordering**.
+
+### Source project (editable)
+
+| File | Description |
+|---|---|
+| `pcb/source/driver_board_source_lceda_pro.epro2` | LCEDA Pro project package, 571 KB, contains schematic + PCB + library references |
+
+- **Original project name**: `两轮平衡小车PCB学习`
+- **How to open**: LCEDA Pro (exported with version **3.2.175**) → `File → Open Project` → pick the file
+- **How to revise**: edit in that project → `File → Export → JLCPCB order files` → replace `driver_board_gerber_jlcpcb.zip` with the new gerber package
+
+> LCEDA Pro keeps projects in the cloud by default and leaves nothing on disk. This `.epro2` is a manual local export — re-export it after you change the board.
 
 ## 3D printed parts
 
