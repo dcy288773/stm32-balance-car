@@ -881,6 +881,16 @@
           <GroupName>MyAPP</GroupName>
           <Files>
             <File>
+              <FileName>ultrasonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyAPP\ultrasonic.c</FilePath>
+            </File>
+            <File>
+              <FileName>ultrasonic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyAPP\ultrasonic.h</FilePath>
+            </File>
+            <File>
               <FileName>bluetooth.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MyAPP\bluetooth.c</FilePath>

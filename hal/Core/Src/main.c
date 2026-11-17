@@ -39,6 +39,7 @@
 #include "inv_mpu.h"
 #include "pid.h"
 #include "bluetooth.h"
+#include "ultrasonic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -132,6 +133,9 @@ int main(void)
   /* 蓝牙只挂接收中断，不参与 DMP 的软件 I2C，放在这里最安全 */
   Bluetooth_Init();
 
+  /* 超声波：PA3 触发 / PA2 回波，DWT 计时，不占定时器、不开中断 */
+  Ultrasonic_Init();
+
   /* MPU6050 + DMP must finish BEFORE the control tick starts:
    * DMP firmware loading and Control() share the same software I2C pins,
    * so starting the tick early corrupts the firmware download. */
@@ -156,6 +160,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     static uint32_t t = 0;
+
+    /* 超声波测距：非阻塞入口，内部自己控 65ms 节拍。
+     * 单次最多阻塞 8ms，但 TIM3 的 200Hz 和 USART3 的中断照常响应。 */
+    Ultrasonic_Update();
 
     if ((HAL_GetTick() - t) >= 200U)
     {

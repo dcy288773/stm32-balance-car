@@ -9,7 +9,7 @@
 | 版本 | 目录 | 库 | 状态 |
 |:---|:---|:---|:---|
 | 标准外设库版 | [`std/`](std/) | STM32F10x StdPeriph | ✅ 已完成 |
-| HAL 库版 | [`hal/`](hal/) | STM32CubeMX + HAL | ✅ 可运行（未实现超声波） |
+| HAL 库版 | [`hal/`](hal/) | STM32CubeMX + HAL | ✅ 可运行 |
 
 ![MCU](https://img.shields.io/badge/MCU-STM32F103C8T6-0769AD?logo=stmicroelectronics)
 ![IDE](https://img.shields.io/badge/IDE-Keil%20MDK-orange)
@@ -33,7 +33,7 @@
 | PB5 | 使用 | **未使用** |
 | OLED 总线 | 软件 I2C | **硬件 I2C1**（PB8/PB9，需 I2C1 重映射） |
 | MPU6050 总线 | 软件 I2C（PB3/PB4） | 软件 I2C（PB3/PB4，DWT 微秒延时） |
-| 超声波测距 | ✅ HC-SR04 | ❌ 未实现 |
+| 超声波测距 | ✅ HC-SR04，TIM3 计时 | ✅ HC-SR04，DWT 计时 + 防撞刹停 |
 | 蓝牙遥控 | 单字节指令，指令锁存 | 锁存 + 斜坡加减速 + 可选失联保护 |
 | 配置来源 | 手写 | `hal/balance_car.ioc`（CubeMX） |
 
@@ -47,13 +47,14 @@
 - 三闭环串级 PID：直立环 PD + 速度环 PI + 转向环 PD
 - 直立环控制周期 5 ms（200 Hz），速度环 50 Hz
 - 编码器使用定时器编码器接口模式，硬件自动计数，不占用 CPU
+- 两版都有 HC-SR04 超声波测距（计时方式不同）
 - USART3 蓝牙遥控（JDY-31 BLE 串口透传）
 - 倾角超过 60° 自动切断电机输出，保护硬件
 - 速度环抗积分饱和；DMP 读失败与 FIFO 积压都有明确处理策略
 
 **仅标准库版（`std/`）**
 
-- HC-SR04 超声波测距，OLED 显示车身角度、超声波距离、车轮转速
+- OLED 显示车身角度、超声波距离、车轮转速
 - 控制中断由 MPU6050 的 INT 引脚（PB5 / EXTI_Line5）触发
 - OLED 使用软件 I2C
 
@@ -74,7 +75,7 @@
 | 电机 | 520 减速电机 ×2 | 带 AB 相霍尔编码器，左右对称安装 |
 | 电机驱动 | TB6612FNG | 双路 H 桥 |
 | 显示 | 0.96 寸 OLED | SSD1306，I2C 接口 |
-| 测距 | HC-SR04 | 超声波模块（**仅 `std/` 版驱动**） |
+| 测距 | HC-SR04 | 超声波模块 |
 | 蓝牙 | JDY-31 | BLE 串口透传，9600 |
 | 电源 | 18650 电池组 7.4V | 电机与主控分开供电，**必须共地** |
 
@@ -95,7 +96,7 @@
 | `PB6` `PB7` | 右轮编码器 | TIM4 编码器接口 | 两版相同 |
 | `PB3` / `PB4` | MPU6050 | 软件 I2C SCL / SDA | 两版相同 |
 | `PB5` | MPU6050 INT | EXTI_Line5 下降沿 | `std/` 用它触发控制中断；**`hal/` 未使用** |
-| `PA3` / `PA2` | HC-SR04 | TRIG / ECHO | **仅 `std/` 版驱动** |
+| `PA3` / `PA2` | HC-SR04 | TRIG / ECHO | `std/` 用 TIM3 计时；`hal/` 用 DWT 计时，不开中断 |
 | `PB8` / `PB9` | OLED | SCL / SDA | `std/` 软件 I2C；`hal/` 硬件 I2C1 |
 | `PB10` / `PB11` | 蓝牙 | USART3，9600 | 两版相同 |
 | `PA9` / `PA10` | 调试串口 | USART1，115200 | `hal/` 已初始化但当前未使用 |
@@ -246,7 +247,7 @@ stm32-balance-car/
 
 ## 🗺 路线图
 
-- [ ] HAL 版加入 HC-SR04 超声波测距
+- [x] HAL 版加入 HC-SR04 超声波测距（DWT 计时 + 防撞刹停）
 - [ ] 加一个不用 DMP 的互补滤波姿态解算，做对照
 - [ ] HAL 版移植 FreeRTOS
 - [ ] 蓝牙遥控配套手机 App

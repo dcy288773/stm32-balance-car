@@ -5,6 +5,7 @@
 #include "encoder.h"
 #include "motor.h"
 #include "bluetooth.h"
+#include "ultrasonic.h"
 
 #include "mpu6050.h"
 #include "inv_mpu.h"
@@ -397,6 +398,54 @@ void Control(void)
 
         Turn_Speed = Turn_Speed > RC_TURN_MAX ? RC_TURN_MAX
                    : (Turn_Speed < -RC_TURN_MAX ? -RC_TURN_MAX : Turn_Speed);
+
+#if (ULTRASONIC_ENABLE != 0)
+        /* 防撞：只压前进方向的速度上限。
+         * 不碰 PWM、不碰 PID 增益；倒车（负值）和转向完全不受影响。
+         * 用 blocked 做滞回：20cm 刹停后，要退到 30cm 才恢复，
+         * 否则车会在临界距离上走走停停地抖。 */
+        if (Ultrasonic_Valid != 0U)
+        {
+            static uint8_t blocked = 0U;
+            float dist = Ultrasonic_Distance;
+            float limit;
+
+            if (blocked != 0U)
+            {
+                if (dist > ULTRASONIC_RESUME_CM)
+                {
+                    blocked = 0U;
+                }
+            }
+            else
+            {
+                if (dist < ULTRASONIC_STOP_CM)
+                {
+                    blocked = 1U;
+                }
+            }
+
+            if (blocked != 0U)
+            {
+                limit = 0.0f;
+            }
+            else if (dist < ULTRASONIC_SLOW_CM)
+            {
+                limit = RC_SPEED_MAX
+                      * (dist - ULTRASONIC_STOP_CM)
+                      / (ULTRASONIC_SLOW_CM - ULTRASONIC_STOP_CM);
+            }
+            else
+            {
+                limit = RC_SPEED_MAX;
+            }
+
+            if (Target_Speed > limit)
+            {
+                Target_Speed = limit;
+            }
+        }
+#endif
 
         //速度环50Hz：累计4个5ms编码器窗口，再折算回10ms单位
         speed_divider++;
